@@ -1,0 +1,16 @@
+<div class="main-db-top-nav">
+  <div class="main-db-top-nav__list">
+    <button class="main-db-top-nav__list--item" mat-icon-button>
+      <mat-icon class="main-db-top-nav__list--icon">notifications</mat-icon>
+    </button>
+    <div matRipple [matMenuTriggerFor]="menu" class="main-db-top-nav__avatar">
+      <img class="main-db-top-nav__avatar--img" [src]="defaultAvatarImg" />
+    </div>
+    <mat-menu #menu="matMenu">
+      <button (click)="goToRoute('account')" mat-menu-item>
+        <mat-icon>manage_accounts</mat-icon>
+        <span>Manage account</span>
+      </button>
+    </mat-menu>
+  </div>
+</div>

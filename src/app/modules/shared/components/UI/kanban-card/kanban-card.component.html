@@ -1,0 +1,28 @@
+<div class="kanban-card" matRipple="centered">
+  <div class="kanban-card__row--id">
+    <div class="kanban-card__sm-wrapper">
+      <mat-icon class="icon-gray">receipt</mat-icon>
+      <h4 class="kanban-card__title--xsm">{{displayId}}</h4>
+    </div>
+    <div class="kanban-card__avatar">
+        <img class="kanban-card__avatar--img" [src]="defaultAvatarImg">
+    </div>
+  </div>
+  <div class="kanban-card__row--title">
+    <h4 class="kanban-card__title--sm">
+      {{title}}
+    </h4>
+  </div>
+  <div class="kanban-card__row--credit">
+    <div class="kanban-card__sm-wrapper">
+      <mat-icon class="icon-blue">arrow_drop_up</mat-icon>
+      <h4 class="kanban-card__title--xsm italic">Credit ({{credit}})</h4>
+    </div>
+  </div>
+  <div class="kanban-card__row--project">
+    <h4 class="kanban-card__title--sm project-color">{{project}}</h4>
+  </div>
+  <div class="kanban-card__row--team">
+    <h4 class="kanban-card__title--sm team-color">{{team}}</h4>
+  </div>
+</div>

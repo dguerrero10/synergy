@@ -1,0 +1,18 @@
+<div class="main-db-side-nav">
+  <button (click)="toggleSideNav()"
+          class="main-db-side-nav__toggle-btn" 
+          color="primary"
+          mat-icon-button aria-label="Arrow back">
+    <mat-icon>{{sideNavIsOpen ? 'chevron_left' : 'chevron_right'}}</mat-icon>
+  </button>
+  <div *ngIf="sideNavIsOpen" class="main-db-side-nav__list">
+    <li class="main-db-side-nav__list--item">
+      <!-- <div *ngFor="let tab of tabs;" 
+      [ngClass]="{'main-db__tabs--tab-active': currentTab === tab.tabValue}"
+      (click)="switchBoard(tab)" class="main-db__tabs--tab"><mat-icon
+      color="primary">{{tab.tabIcon}}</mat-icon>{{tab.tabName}}</div> -->
+    </li>
+    <li class="main-db-side-nav__list--item">
+    </li>
+  </div>
+</div>

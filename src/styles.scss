@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import './assets/scss/base/flex';
+@import './assets/scss/base/utilities';
+ /* Hide the default scrollbar */
+ ::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background: transparent; /* Track color (the area behind the scrollbar) */
+}
+::-webkit-scrollbar-thumb {
+    background: #bbb9b9; /* Thumb color (the draggable part of the scrollbar) */
+    border-radius: 2px; /* Rounded corners for the thumb */
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #969494; /* Change thumb color on hover */
+}
+
+.italic {
+    font-style: italic;
+    font-weight: 300;
+}
+
+.icon-gray {
+    margin-right: .25rem;
+    color: #757575;
+}
+
+.icon-blue {
+    margin-right: .15rem;
+    color: #2F7EB6;
+}
+
+.icon-white {
+    color: #fff;
+}

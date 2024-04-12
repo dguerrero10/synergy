@@ -1,0 +1,9 @@
+<div class="main-db">
+  <app-main-dashboard-top-nav></app-main-dashboard-top-nav>
+  <div [class.custom-class]="true" 
+       [ngStyle]="!sideNavIsOpen ? { 'grid-template-columns': '38px 1fr' } : null"
+       class="main-db__grid">
+    <app-main-dashboard-side-nav></app-main-dashboard-side-nav>
+    <app-main-dashboard-board></app-main-dashboard-board>
+  </div>
+</div>

@@ -1,0 +1,138 @@
+<div cdkDropListGroup
+  [class.custom-class]="true"
+  [ngStyle]="isOnRowDisplayMode ? { 'grid-template-columns': '1fr' } : null"
+  class="kanban"
+>
+  <div class="kanban--column">
+    <div class="kanban--header not-started">
+      <h2 class="kanban--title">Not started ({{ notStartedList.length }})</h2>
+      <button
+        *ngIf="!isOnRowDisplayMode"
+        class="kanban--header-icon-btn"
+        mat-icon-button
+      >
+        <mat-icon class="icon-white">drag_handle</mat-icon>
+      </button>
+    </div>
+    <div
+      cdkDropList
+      [cdkDropListData]="notStartedList"
+      [ngClass]="{
+        'kanban--card-wrapper-row': isOnRowDisplayMode,
+        'kanban--card-wrapper-col': !isOnRowDisplayMode
+      }"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <app-kanban-card
+        *ngFor="let card of notStartedList"
+        [title]="card.title"
+        [displayId]="card.displayId"
+        [credit]="card.credit"
+        [project]="card.project"
+        [team]="card.team"
+        [status]="card.status"
+        cdkDrag
+      >
+      </app-kanban-card>
+    </div>
+  </div>
+  <div class="kanban--column">
+    <div class="kanban--header in-progress">
+      <h2 class="kanban--title">In progress ({{ inProgressList.length }})</h2>
+      <button
+        *ngIf="!isOnRowDisplayMode"
+        class="kanban--header-icon-btn"
+        mat-icon-button
+      >
+        <mat-icon class="icon-white">drag_handle</mat-icon>
+      </button>
+    </div>
+    <div
+      cdkDropList
+      [cdkDropListData]="inProgressList"
+      (cdkDropListDropped)="drop($event)"
+      [ngClass]="{
+        'kanban--card-wrapper-row': isOnRowDisplayMode,
+        'kanban--card-wrapper-col': !isOnRowDisplayMode
+      }"
+    >
+      <app-kanban-card
+        *ngFor="let card of inProgressList"
+        [title]="card.title"
+        [displayId]="card.displayId"
+        [credit]="card.credit"
+        [project]="card.project"
+        [team]="card.team"
+        [status]="card.status"
+        cdkDrag
+      >
+      </app-kanban-card>
+    </div>
+  </div>
+  <div class="kanban--column">
+    <div class="kanban--header need-support">
+      <h2 class="kanban--title">Need support ({{ needSupportList.length }})</h2>
+      <button
+        *ngIf="!isOnRowDisplayMode"
+        class="kanban--header-icon-btn"
+        mat-icon-button
+      >
+        <mat-icon class="icon-white">drag_handle</mat-icon>
+      </button>
+    </div>
+    <div
+      cdkDropList
+      [cdkDropListData]="needSupportList"
+      (cdkDropListDropped)="drop($event)"
+      [ngClass]="{
+        'kanban--card-wrapper-row': isOnRowDisplayMode,
+        'kanban--card-wrapper-col': !isOnRowDisplayMode
+      }"
+    >
+      <app-kanban-card
+        *ngFor="let card of needSupportList"
+        [title]="card.title"
+        [displayId]="card.displayId"
+        [credit]="card.credit"
+        [project]="card.project"
+        [team]="card.team"
+        [status]="card.status"
+        cdkDrag
+      >
+      </app-kanban-card>
+    </div>
+  </div>
+  <div class="kanban--column">
+    <div class="kanban--header complete">
+      <h2 class="kanban--title">Completed ({{ completedList.length }})</h2>
+      <button
+        *ngIf="!isOnRowDisplayMode"
+        class="kanban--header-icon-btn"
+        mat-icon-button
+      >
+        <mat-icon class="icon-white">drag_handle</mat-icon>
+      </button>
+    </div>
+    <div
+      cdkDropList
+      [cdkDropListData]="completedList"
+      (cdkDropListDropped)="drop($event)"
+      [ngClass]="{
+        'kanban--card-wrapper-row': isOnRowDisplayMode,
+        'kanban--card-wrapper-col': !isOnRowDisplayMode
+      }"
+    >
+      <app-kanban-card
+        *ngFor="let card of completedList"
+        [title]="card.title"
+        [displayId]="card.displayId"
+        [credit]="card.credit"
+        [project]="card.project"
+        [team]="card.team"
+        [status]="card.status"
+        cdkDrag
+      >
+      </app-kanban-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,2 @@
+Create team --> build board with cards 
+Can create multiple teams and select them from the teams page

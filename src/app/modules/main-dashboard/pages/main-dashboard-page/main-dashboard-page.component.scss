@@ -1,0 +1,15 @@
+.main-db {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &__grid {
+        height: 100%;
+        padding: 1rem 0;
+        display: grid;
+        grid-template-columns: 140px auto;
+        grid-gap: 1rem;
+        background-color: #ECEFF8;    
+    }
+}

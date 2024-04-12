@@ -1,0 +1,51 @@
+<div [ngSwitch]="currentTab" class="main-db">
+  <div class="main-db__toolbars">
+    <div class="main-db__header">
+      <h1 class="mat-display-3">Test</h1>
+      <p class="mat-para">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta,
+        similique.
+      </p>
+    </div>
+    <div class="main-db__tabs">
+      <div class="main-db__tabs--row">
+        <div *ngFor="let tab of tabs;" 
+             [ngClass]="{'main-db__tabs--tab-active': currentTab === tab.tabValue}"
+             (click)="switchBoard(tab)" class="main-db__tabs--tab"><mat-icon
+             color="primary">{{tab.tabIcon}}</mat-icon>{{tab.tabName}}</div>
+      </div>
+    </div>
+    <div *ngIf="currentTab === 'kanban'" class="kanban__controls">
+      <div class="kanban__controls--container">
+        <button (click)="openCreateCardModal()" class="kanban__controls--btn" mat-raised-button color="primary">
+          Create card <mat-icon>add</mat-icon>
+        </button>
+        <button (click)="toggleDisplay()" class="kanban__controls--btn" mat-stroked-button> {{
+          isOnRowDisplayMode ?
+          'Display column' : 'Display row' }}
+          <mat-icon>{{ isOnRowDisplayMode ? 'rotate_left' : 'rotate_right' }}</mat-icon>
+        </button>
+        <button class="kanban__controls--btn" mat-stroked-button>
+          Filter <mat-icon>filter_list</mat-icon>
+        </button>
+        <button class="kanban__controls--btn" mat-stroked-button>
+          Sort <mat-icon>sort</mat-icon>
+        </button>
+        <button class="kanban__controls--btn" *ngIf="!onSearchMode" (click)="toggleSearch()" mat-stroked-button>
+          Search <mat-icon>search</mat-icon>
+        </button>
+        <mat-form-field *ngIf="onSearchMode" class="kanban__controls--search">
+          <mat-icon matPrefix>search</mat-icon>
+          <input #searchInput matInput />
+          <button matSuffix mat-icon-button (click)="toggleSearch()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <app-kanban *ngSwitchCase="'kanban'"></app-kanban>
+  <app-cycle-controls *ngSwitchCase="'cycleControls'"></app-cycle-controls>
+  <app-cycle-metrics *ngSwitchCase="'cycleMetrics'"></app-cycle-metrics>
+  <app-admin *ngSwitchCase="'admin'"></app-admin>
+</div>
